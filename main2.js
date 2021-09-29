@@ -25,7 +25,7 @@ function subbt2() {
                 output.innerHTML = `No Contests`;
             }
             else {
-                data.forEach(function (i) {
+                data.forEach(function(i) {
                     const ott = document.createElement('ott');
                     if (i.status == "CODING") {
                         ott.innerHTML = `
@@ -130,8 +130,8 @@ function subbt4() {
                         }
                         ott.innerHTML = `
                     <p><a href="${i.url}" target="_blank">${i.name}</a> : ${date} [${hr}hr]</p> 
-                    <br>
-                `;
+                    <br>`
+                    ;
                     }
                     output.append(ott);
                 });
