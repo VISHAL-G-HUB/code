@@ -10,13 +10,13 @@ bt3.addEventListener('click', subbt3);
 bt4.addEventListener('click', subbt4);
 bt5.addEventListener('click', subbt5);
 bt6.addEventListener('click', subbt6);
-
+var dattt=new Date();
 function subbt2() {
     output1.classList.remove('result2');
     output1.innerHTML = ``;
     output.classList.add('result2');
     output.innerHTML = '<p>loading...</p>';
-
+   
     fetch(`https://kontests.net/api/v1/codeforces`)
         .then((response) => response.json())
         .then((data) => {
@@ -125,15 +125,17 @@ function subbt4() {
                         if (i.duration != '-') hr = i.duration / 3600;
                         if (i.start_time != '-') {
                             var datt = new Date(i.start_time);
+                            
+                            if(datt>dattt){
                             var myar = datt.toString().split(" ");
                             date = `${myar[2]} ${myar[1]} ${myar[3]}, ${datt.toLocaleTimeString()}`
-                        }
+                        
                         ott.innerHTML = `
                     <p><a href="${i.url}" target="_blank">${i.name}</a> : ${date} [${hr}hr]</p> 
                     <br>`
                     ;
-                    }
-                    output.append(ott);
+                    }}
+                    output.append(ott);}
                 });
             }
         })
